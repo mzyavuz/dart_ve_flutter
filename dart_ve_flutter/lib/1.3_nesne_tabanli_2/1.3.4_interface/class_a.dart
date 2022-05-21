@@ -1,4 +1,5 @@
-import 'package:ders_1/1.3_nesne_tabanli_2/interface/my_interface.dart';
+
+import 'my_interface.dart';
 
 class ClassA implements MyInterface {
 

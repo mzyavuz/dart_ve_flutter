@@ -1,5 +1,7 @@
-import 'package:ders_1/1.3_nesne_tabanli_2/composition/kategoriler.dart';
-import 'package:ders_1/1.3_nesne_tabanli_2/composition/yonetmenler.dart';
+
+import 'package:ders_1/1.3_nesne_tabanli_2/1.3.0_composition/yonetmenler.dart';
+
+import 'kategoriler.dart';
 
 class Filmler {
   int film_id;

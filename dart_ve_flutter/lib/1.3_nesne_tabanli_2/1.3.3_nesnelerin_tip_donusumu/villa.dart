@@ -1,4 +1,4 @@
-import 'package:ders_1/1.3_nesne_tabanli_2/inheritance/ev.dart';
+import 'ev.dart';
 
 class Villa extends Ev{
   bool garajVarMi;

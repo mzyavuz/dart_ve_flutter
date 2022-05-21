@@ -1,14 +1,14 @@
 
-import 'package:ders_1/1.3_nesne_tabanli_2/override/hayvan.dart';
-import 'package:ders_1/1.3_nesne_tabanli_2/override/kedi.dart';
-import 'package:ders_1/1.3_nesne_tabanli_2/override/kopek.dart';
-import 'package:ders_1/1.3_nesne_tabanli_2/override/memeli.dart';
+import 'hayvan.dart';
+import 'kedi.dart';
+import 'kopek.dart';
+import 'memeli.dart';
+
 
 /*
-kalıtım olmazsa override olmaz,
+kalıtım olmazsa 1.3.2_override olmaz,
 üst sınıftaki yapıyı(metodu) aşağı sınıfta tekrar kullanmak için kullanılıyor
 */
-
 
 void main() {
   var hayvan = Hayvan();

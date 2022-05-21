@@ -1,6 +1,8 @@
-import 'package:ders_1/1.3_nesne_tabanli_2/inheritance/ev.dart';
-import 'package:ders_1/1.3_nesne_tabanli_2/inheritance/saray.dart';
-import 'package:ders_1/1.3_nesne_tabanli_2/inheritance/villa.dart';
+
+
+import '../1.3.1_inheritance/saray.dart';
+import '../1.3.1_inheritance/villa.dart';
+import 'ev.dart';
 
 void main() {
   var topkapiSarayi = Saray(10, 200);

@@ -1,6 +1,8 @@
-import 'package:ders_1/1.3_nesne_tabanli_2/composition/filmler.dart';
-import 'package:ders_1/1.3_nesne_tabanli_2/composition/kategoriler.dart';
-import 'package:ders_1/1.3_nesne_tabanli_2/composition/yonetmenler.dart';
+
+
+import 'package:ders_1/1.3_nesne_tabanli_2/1.3.0_composition/yonetmenler.dart';
+import 'filmler.dart';
+import 'kategoriler.dart';
 
 void main() {
   var k1 = Kategoriler(kategori_id: 1, kategori_ad: "Dram");

@@ -1,7 +1,8 @@
 
 
 
-import '../fonksiyonlar/fonksiyonlar.dart';
+import 'package:ders_1/1.2_nesne_tabanli_1/1.2.2_fonksiyonlar/fonksiyonlar.dart';
+
 import 'araba.dart';
 
 void main() {

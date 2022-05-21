@@ -1,4 +1,5 @@
-import 'package:ders_1/1.3_nesne_tabanli_2/override/memeli.dart';
+
+import 'memeli.dart';
 
 class Kedi extends Memeli {
 
