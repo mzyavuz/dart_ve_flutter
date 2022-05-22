@@ -1,0 +1,16 @@
+
+List:
+    index -> values
+    0'dan başlar
+
+HashSet:
+    içerisine veri aktarabiliyoruz, liste çok benziyor
+    Listle iki farkı var:
+        1) Hashset içeriğini karıştırır, sırası olmaz
+        2) Aynı veriden bir tane daha olmaz
+    - Rastgele seçilecek olaylar için çok uygun
+
+Map: (Swift'te dictionary)
+    Key oluşturuyorsun (index yerine senin atadığın bir şey gibi)
+    - Genelde sistemler tarafından istenir
+    (internet tabanlı işlemler, web servisleriyle olan işlemler)
