@@ -3,9 +3,12 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/dart_ve_flutter/.dart_tool" />
-      <excludeFolder url="file://$MODULE_DIR$/dart_ve_flutter/build" />
-      <excludeFolder url="file://$MODULE_DIR$/dart_ve_flutter/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/dart_dersleri/build" />
+      <excludeFolder url="file://$MODULE_DIR$/dart_dersleri/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/dart_dersleri/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter_dersleri/tasarim_calismasi/build" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter_dersleri/tasarim_calismasi/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter_dersleri/tasarim_calismasi/.dart_tool" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
