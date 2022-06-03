@@ -1,23 +1,28 @@
+
 import 'package:flutter/material.dart';
 
 class Anasayfa extends StatefulWidget {
-  const Anasayfa({Key? key}) : super(key: key);
+  const Anasayfa();
 
   @override
   State<Anasayfa> createState() => _AnasayfaState();
+
 }
 
 class _AnasayfaState extends State<Anasayfa> {
   final double kazanc = 36.16;
 
+
   @override
   Widget build(BuildContext context) {
+    final double ekranYuksekligi = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
             SizedBox(
-              height: 70,
+              height: ekranYuksekligi / 13,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -44,7 +49,7 @@ class _AnasayfaState extends State<Anasayfa> {
               ),
             ),
             SizedBox(
-              height: 70,
+              height: ekranYuksekligi / 10,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -101,7 +106,7 @@ class _AnasayfaState extends State<Anasayfa> {
               ),
             ),
             SizedBox(
-              height: 532,
+              height: ekranYuksekligi * 0.70,
               child: ListView(children: const [
                 SoruBilgilendirme(
                     ucret: 0.50,
