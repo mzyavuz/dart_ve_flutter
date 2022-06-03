@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:tasarim_calismasi/renkler.dart';
 
@@ -31,6 +32,12 @@ class AnaSayfa extends StatefulWidget {
 class _AnaSayfaState extends State<AnaSayfa> {
   @override
   Widget build(BuildContext context) {
+    var ekranBilgisi = MediaQuery.of(context);
+    final double ekranYuksekligi = ekranBilgisi.size.height;
+    final double ekranGenisligi = ekranBilgisi.size.width;
+    print('Ekran Yüksekliği: $ekranYuksekligi');
+    print('Ekran Genişliği: $ekranGenisligi');
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -46,11 +53,11 @@ class _AnaSayfaState extends State<AnaSayfa> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 16.0),
+            padding: EdgeInsets.only(top: ekranYuksekligi/43),
             child: Text('Beef Cheese',
               style: TextStyle(
                 color: anaRenk,
-                fontSize: 36,
+                fontSize: ekranGenisligi/11,
                 fontWeight: FontWeight.bold
               ),
             ),
@@ -64,66 +71,10 @@ class _AnaSayfaState extends State<AnaSayfa> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                TextButton(
-                  onPressed: () {},
-                  style: TextButton.styleFrom(
-                    backgroundColor: anaRenk,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    )
-                  ),
-                  child: Text(
-                    'Cheese',
-                    style: TextStyle(
-                      color: yaziRenk1,
-                    ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  style: TextButton.styleFrom(
-                      backgroundColor: anaRenk,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      )
-                  ),
-                  child: Text(
-                    'Sausage',
-                    style: TextStyle(
-                      color: yaziRenk1,
-                    ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  style: TextButton.styleFrom(
-                      backgroundColor: anaRenk,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      )
-                  ),
-                  child: Text(
-                    'Olive',
-                    style: TextStyle(
-                      color: yaziRenk1,
-                    ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  style: TextButton.styleFrom(
-                      backgroundColor: anaRenk,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      )
-                  ),
-                  child: Text(
-                    'Pepper',
-                    style: TextStyle(
-                      color: yaziRenk1,
-                    ),
-                  ),
-                ),
+                Chip(icerik: 'Cheese'),
+                Chip(icerik: 'Sausage'),
+                Chip(icerik: 'Olive',),
+                Chip(icerik: 'Pepper',),
               ],
             ),
           ),
@@ -190,4 +141,25 @@ class _AnaSayfaState extends State<AnaSayfa> {
     );
   }
 }
+
+
+class Chip extends StatelessWidget {
+  String icerik;
+
+  Chip({required this.icerik});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () {},
+      style: TextButton.styleFrom(
+        backgroundColor: anaRenk,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20)),)),
+          child: Text(icerik,style: TextStyle(color: yaziRenk1,),
+     ),
+    );
+  }
+}
+
 

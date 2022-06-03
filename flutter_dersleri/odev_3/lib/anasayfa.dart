@@ -123,6 +123,11 @@ class _AnasayfaState extends State<Anasayfa> {
                     ders: 'Ortaokul Matematik',
                     tarih: '04.02.2022',
                     konu: 'Problemler'),
+                SoruBilgilendirme(
+                    ucret: 0.30,
+                    ders: 'Lise Matematik',
+                    tarih: '03.02.2022',
+                    konu: 'Açılar'),
               ]),
             ),
           ],

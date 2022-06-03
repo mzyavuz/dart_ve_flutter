@@ -1,4 +1,5 @@
 import 'package:calisma_yapisi/kisiler.dart';
+import 'package:calisma_yapisi/sonuc_ekrani.dart';
 import 'package:flutter/material.dart';
 
 class OyunEkrani extends StatefulWidget {
@@ -14,19 +15,19 @@ class _OyunEkraniState extends State<OyunEkrani> {
 
   Future<bool> geriDonusTusu(BuildContext context) async {
     print('Navigation geri tuşu tıklandı');
-    return false;
+    return true;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Oyun Ekranı'),
+        title: const Text('Oyun Ekranı'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_sharp),
+          icon: const Icon(Icons.arrow_back_ios_sharp),
           onPressed: () {
             print('Appbar geri tuşu tıklandı');
-            Navigator.of(context).pop();
+            Navigator.pop(context);
           },
         ),
       ),
@@ -36,7 +37,13 @@ class _OyunEkraniState extends State<OyunEkrani> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-
+              Text('${widget.kisi.ad} - ${widget.kisi.yas} - ${widget.kisi.boy} - ${widget.kisi.bekar}'),
+              ElevatedButton(onPressed: (){
+                Navigator.pushReplacement(context, //pushReplacement backstate'ten silinmesini sağlıyor
+                    MaterialPageRoute(
+                      builder: (context) => const SonucEkrani(),)
+                );
+              }, child: const Text('BİTTİ'),),
             ],
           ),
         ),

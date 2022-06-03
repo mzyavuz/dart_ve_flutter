@@ -13,8 +13,6 @@ class _AnasayfaState extends State<Anasayfa> with WidgetsBindingObserver {
   int sayac = 0;
   bool kontrol = false;
 
-
-
   @override
   void initState() {
     super.initState();
@@ -68,10 +66,10 @@ class _AnasayfaState extends State<Anasayfa> with WidgetsBindingObserver {
             ElevatedButton(
               onPressed: () {
                 var kisi = Kisiler(ad: 'Ahmet', yas: 23, boy: 1.78, bekar: true);
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => OyunEkrani(kisi: kisi)))
-                    .then((_) => { print("Anasayfaya geri dönüldü")});
+                Navigator.push(context, MaterialPageRoute(builder: (context) => OyunEkrani(kisi: kisi))).then((_) => {print("Anasayfaya geri dönüldü")});
+                //Navigator.of(context).push(MaterialPageRoute(builder: (context) => OyunEkrani(kisi: kisi))).then((_) => { print("Anasayfaya geri dönüldü")});
               },
-              child: const Text('Başla'),
+              child: const Text('BAŞLA'),
             ),
             Visibility(visible: kontrol, child: const Text("Merhaba"),),
             Text(
