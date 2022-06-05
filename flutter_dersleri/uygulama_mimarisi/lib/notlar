@@ -1,0 +1,12 @@
+MVC:
+
+User -use-> Controller -manipulates-> Model -updates-> View -see-> User
+
+MVVM -> android
+... data -> iOS
+
+Flutter
+Klasik Yöntem: Sayfa (Görsel nesne kodlamaları ve işlemsel kodlamalar) <--> Model
+Bloc: Sayfa <--> Cubit (işlemsel kodlamalar) <--> Repository <--> Model
+
+BLOC YAPISI:
