@@ -28,7 +28,7 @@ class _AnasayfaState extends State<Anasayfa> {
     var y5 = Yemek(yemekAdi: 'Kıymalı Taze Fasulye Yemeği', yemekSuresi: '40 DAKİKA', yemekFotosu: 'https://img.piri.net/mnresize/210/-/piri/upload/image/2022/6/2/c03bf73d-2_9925773e.png');
     var y6 = Yemek(yemekAdi: 'Tulum Peynirli Bostan Patlıcan', yemekSuresi: ' ', yemekFotosu: 'https://img.piri.net/mnresize/210/-/piri/upload/image/2021/6/21/a909bc8d-2_bd7bc6ef.png');
     var y7 = Yemek(yemekAdi: 'Izgara Biberler', yemekSuresi: '30 DAKİKA', yemekFotosu: 'https://img.piri.net/mnresize/210/-/piri/upload/image/2022/5/3/752e0a03-2_c756667a.png');
-    var y8 = Yemek(yemekAdi: 'Eli Enginar Yemeği', yemekSuresi: '45 DAKİKA', yemekFotosu: 'https://img.piri.net/mnresize/210/-/piri/upload/image/2022/4/30/67dc49e8-2_98165178.png');
+    var y8 = Yemek(yemekAdi: 'Etli Enginar Yemeği', yemekSuresi: '45 DAKİKA', yemekFotosu: 'https://img.piri.net/mnresize/210/-/piri/upload/image/2022/4/30/67dc49e8-2_98165178.png');
 
     yemeklerListesi.add(y1);
     yemeklerListesi.add(y2);
@@ -48,6 +48,7 @@ class _AnasayfaState extends State<Anasayfa> {
       length: 17,
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: const Text(
             'Lokma',
             style: TextStyle(
@@ -166,7 +167,7 @@ class _AnasayfaState extends State<Anasayfa> {
                     ),
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      childAspectRatio: 5 / 8,
+                      childAspectRatio: 65 / 100,
                     ),
                   ),
                 ]);
@@ -236,16 +237,27 @@ class YemekKarti extends StatelessWidget {
                 padding: EdgeInsets.all(5.0),
                 child: Icon(Icons.watch_later_outlined,size: 15,color: Colors.black38,),
               ),
-              Text(yemek.yemekSuresi, style: const TextStyle(color: Colors.black38),),
+              Text(
+                yemek.yemekSuresi,
+                style: const TextStyle(
+                  color: Colors.black38,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 12,
+                ),
+              ),
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 5.0, left: 5.0, right: 5.0),
+            padding: const EdgeInsets.only(bottom: 5.0, left: 7.0, right: 5.0),
             child: Text(
               yemek.yemekAdi,
               textAlign: TextAlign.start,
               style: const TextStyle(
-                  fontSize: 18, fontWeight: FontWeight.bold,),
+                fontSize: 18,
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ),
           const Spacer(),
