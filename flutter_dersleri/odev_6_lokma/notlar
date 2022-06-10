@@ -1,0 +1,11 @@
+MaterialStateProperty:
+https://www.codegrepper.com/code-examples/whatever/elevated+button+background+color+flutter
+
+Scrollable tabbar:
+https://dev.to/alexandrefreire/flutter-horizontally-scrollable-tabs-5nb
+https://stackoverflow.com/questions/54230115/horizontally-scrollable-tabs-focus-on-center-with-snap-in-flutter
+
+CustomScrollView & Slivers:
+https://medium.com/swlh/flutter-slivers-and-customscrollview-1aaadf96e35a
+https://api.flutter.dev/flutter/widgets/SliverList-class.html
+https://api.flutter.dev/flutter/widgets/SliverChildBuilderDelegate-class.html
