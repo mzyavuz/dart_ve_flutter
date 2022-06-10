@@ -227,9 +227,10 @@ class YemekKarti extends StatelessWidget {
         children: [
           Image.network(
             yemek.yemekFotosu,
+            fit: BoxFit.cover,
             alignment: Alignment.topCenter,
-            width: 250,
-            height: 180,
+            width: 240,
+            height: 190,
           ),
           Row(
             children: [
@@ -242,7 +243,7 @@ class YemekKarti extends StatelessWidget {
                 style: const TextStyle(
                   color: Colors.black38,
                   fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w700,
                   fontSize: 12,
                 ),
               ),
