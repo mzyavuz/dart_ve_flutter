@@ -5,7 +5,8 @@ import 'package:yemek_siparis_uygulamasi/model/yemek.dart';
 import 'package:yemek_siparis_uygulamasi/views/yemek_detay_ekrani.dart';
 
 class SiparisEkrani extends StatefulWidget {
-  const SiparisEkrani({Key? key}) : super(key: key);
+  final String kullanici_adi;
+  SiparisEkrani({Key? key, required this.kullanici_adi}) : super(key: key);
 
   @override
   State<SiparisEkrani> createState() => _SiparisEkraniState();
@@ -37,7 +38,7 @@ class _SiparisEkraniState extends State<SiparisEkrani> {
                     String resimUrl = "http://kasimadalan.pe.hu/yemekler/resimler/";
                     return GestureDetector(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => YemekDetayEkrani(yemek: yemek),));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => YemekDetayEkrani(yemek: yemek, kullanici_adi: widget.kullanici_adi),));
                       },
                       child: Card(
                         child: Row(
@@ -104,7 +105,7 @@ class SliverAppBar extends SliverPersistentHeaderDelegate {
             color: Colors.white,
           ),
         ),
-        Align(
+        const Align(
             child: Text("Zeynep Restoran")),
       ],
     );

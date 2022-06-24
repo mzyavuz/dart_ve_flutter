@@ -9,6 +9,8 @@ class Anasayfa extends StatefulWidget {
 }
 
 class _AnasayfaState extends State<Anasayfa> {
+  var tfKullanici = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +20,16 @@ class _AnasayfaState extends State<Anasayfa> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const Text("Zeynep Restoran'a Hoşgeldiniz"),
+            Padding(
+              padding: const EdgeInsets.only(left: 50.0, right: 50),
+              child: TextField(
+                controller: tfKullanici,
+                decoration: const InputDecoration(hintText: "Kullanıcı Adını Giriniz"),
+              ),
+            ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const SiparisEkrani(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SiparisEkrani(kullanici_adi: tfKullanici.text),));
               },
               child: const Text("Sipariş Ver")),
           ],
