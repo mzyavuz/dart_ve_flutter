@@ -26,10 +26,10 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           IconButton(icon: const Icon(Icons.home), onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => FoodsPage(kullanici_adi: 'mzyavuz'),));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => FoodsPage(kullanici_adi: widget.kullanici_adi),));
           },),
           IconButton(icon: const Icon(Icons.shopping_basket), onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => OrderPage(kullanici_adi: 'mzyavuz'),));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => OrderPage(kullanici_adi: widget.kullanici_adi),));
 
           },),
           IconButton(

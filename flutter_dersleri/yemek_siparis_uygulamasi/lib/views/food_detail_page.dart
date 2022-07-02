@@ -60,8 +60,9 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
                 context.read<FoodDetailPageCubit>().addToCart(yemek.yemek_adi, yemek.yemek_resim_adi, int.parse(yemek.yemek_fiyat), adetSayisi, widget.kullanici_adi);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text("${adetSayisi} product is added to your cart ", style: TextStyle(color: Colors.indigoAccent),),
+                    content: Text("$adetSayisi product is added to your cart ", style: TextStyle(color: Colors.indigoAccent),),
                     backgroundColor: Colors.white,
+                    duration: const Duration(seconds: 2),
                     action: SnackBarAction(
                         label: "Go to your Cart",
                         textColor: Colors.red,

@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
               controller: tfPassword,
               label: 'Password',
             ),
-            ColoredAnimatedButton(route: const FoodsPage(kullanici_adi: 'mzyavuz',), title: 'Login'),
+            const ColoredAnimatedButton(route: FoodsPage(kullanici_adi: 'mzyavuz',), title: 'Login'),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
