@@ -68,7 +68,7 @@ class _FoodsPageState extends State<FoodsPage> {
                                     Text(yemek.yemek_adi,
                                     style: const TextStyle(
                                       fontFamily: 'PatrickHand',
-                                      fontSize: 30,
+                                      fontSize: 22,
                                     ),),
                                     const SizedBox(
                                       height: 20,
@@ -76,7 +76,7 @@ class _FoodsPageState extends State<FoodsPage> {
                                     Text("${yemek.yemek_fiyat} ₺",
                                       textAlign: TextAlign.center,
                                       style: const TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 18,
                                       ),
                                     ),
                                   ],
@@ -153,7 +153,7 @@ class SliverAppBar extends SliverPersistentHeaderDelegate {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: 20, left: 44-(shrinkOffset/5) ),
+          padding: EdgeInsets.only(top: 30, left: 44-(shrinkOffset/5) ),
           child: Align(
             alignment: Alignment.topCenter,
             child: Text("What would you like to order?",
@@ -166,33 +166,36 @@ class SliverAppBar extends SliverPersistentHeaderDelegate {
           alignment: Alignment.bottomCenter,
             child: Padding(
               padding: const EdgeInsets.only(top: 10, left: 30.0, right: 30.0),
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
+              child: SizedBox(
+                height: 52,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  child: TextField(
+                      controller: tfSearchController,
+                      decoration: InputDecoration(
+                        suffixIcon: const Icon(Icons.search),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                            color: Colors.white,
+                            width: 2.0,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                            color: Colors.white70,
+                            width: 2.0,
+                          ),
+                        ),
+                        hintText: 'Search Food',
+                        hintStyle: const TextStyle(
+                          color: Colors.grey,
+                        ),
+                      )),
                 ),
-                child: TextField(
-                    controller: tfSearchController,
-                    decoration: InputDecoration(
-                      suffixIcon: const Icon(Icons.search),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Colors.white,
-                          width: 2.0,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Colors.white70,
-                          width: 2.0,
-                        ),
-                      ),
-                      hintText: 'Search Food',
-                      hintStyle: const TextStyle(
-                        color: Colors.grey,
-                      ),
-                    )),
               ),
             ),
         ),

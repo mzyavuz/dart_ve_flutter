@@ -34,9 +34,9 @@ class _MainPageState extends State<MainPage> {
                   }),
             ),
             const Text("Welcome to", style: TextStyle(fontSize: 25),),
-            const Text("Zeynep's Restaurant", style: TextStyle(fontSize: 50, fontFamily: 'PatrickHand', color: Colors.deepOrange, backgroundColor: Colors.yellow),),
-            ColoredAnimatedButton(route: const LoginPage(), title: 'Login'),
-            ColoredAnimatedButton(route: const SignUpPage(), title: 'Sign Up'),
+            const Text("Zeynep's Restaurant", style: TextStyle(fontSize: 45, fontFamily: 'PatrickHand', color: Colors.deepOrange, backgroundColor: Colors.yellow),),
+            const ColoredAnimatedButton(route: LoginPage(), title: 'Login'),
+            const ColoredAnimatedButton(route: SignUpPage(), title: 'Sign Up'),
             TextButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const Homepage(),));

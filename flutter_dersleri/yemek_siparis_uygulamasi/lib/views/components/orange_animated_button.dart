@@ -6,7 +6,10 @@ class ColoredAnimatedButton extends StatefulWidget {
   final Widget route;
   final Color color;
 
-  const ColoredAnimatedButton({Key? key, required this.route, required this.title, this.color = Colors.orange}): super(key: key);
+  final double height;
+  final double width;
+
+  const ColoredAnimatedButton({Key? key, required this.route, required this.title, this.color = Colors.orange, this.width =200, this.height = 64}): super(key: key);
 
   @override
   State<ColoredAnimatedButton> createState() => _ColoredAnimatedButtonState();
@@ -18,6 +21,8 @@ class _ColoredAnimatedButtonState extends State<ColoredAnimatedButton> {
     return Padding(
       padding: const EdgeInsets.only(top: 15.0, bottom: 15.0, left: 2, right: 2),
       child: AnimatedButton(
+        width: widget.width,
+        height: widget.height,
         color: widget.color,
         onPressed: () {
           Navigator.push(

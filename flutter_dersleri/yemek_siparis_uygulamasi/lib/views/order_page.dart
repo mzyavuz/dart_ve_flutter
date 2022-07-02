@@ -130,11 +130,15 @@ class _OrderPageState extends State<OrderPage> {
           Row(
             children: const [
               ColoredAnimatedButton(
+                width: 180,
                 route: Center(),
                 title: 'Cancel',
                 color: Colors.grey,
               ),
-              ColoredAnimatedButton(color: Colors.deepOrange, route: Center(), title: 'Pay')
+              ColoredAnimatedButton(
+                width: 180,
+                  color: Colors.deepOrange, route: Center(), title: 'Pay',
+              )
             ],
           ),
         ],
@@ -178,7 +182,7 @@ class SliverAppBar extends SliverPersistentHeaderDelegate {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: 20, left: 44 - (shrinkOffset / 5)),
+          padding: EdgeInsets.only(top: 30, left: 44 - (shrinkOffset / 5)),
           child: Align(
             alignment: Alignment.topCenter,
             child: Column(
@@ -187,14 +191,14 @@ class SliverAppBar extends SliverPersistentHeaderDelegate {
                   "The Order of",
                   style: TextStyle(
                     fontFamily: 'PatrickHand',
-                    fontSize: shrinkOffset > 0 ? (40 - (shrinkOffset * 0.11)) : 40,
+                    fontSize: shrinkOffset > 0 ? (40 - (shrinkOffset * 0.12)) : 40,
                   ),
                 ),
                 Text(kullanici_adi,
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'PatrickHand',
-                    fontSize: shrinkOffset > 0 ? (40 - (shrinkOffset * 0.11)) : 40,
+                    fontSize: shrinkOffset > 0 ? (40 - (shrinkOffset * 0.12)) : 40,
                   ),)
               ],
             ),
