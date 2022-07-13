@@ -1,21 +1,20 @@
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
 
-class ColoredAnimatedButton extends StatefulWidget {
+class ColoredAnimatedButtonWithAction extends StatefulWidget {
   final String title;
-  final Widget route;
   final Color color;
-
+  final VoidCallback onPressed;
   final double height;
   final double width;
 
-  const ColoredAnimatedButton({Key? key, required this.route, required this.title, this.color = Colors.orange, this.width =200, this.height = 64,}): super(key: key);
+  const ColoredAnimatedButtonWithAction({Key? key, required this.title, this.color = Colors.orange, this.width =200, this.height = 64, required this.onPressed}): super(key: key);
 
   @override
-  State<ColoredAnimatedButton> createState() => _ColoredAnimatedButtonState();
+  State<ColoredAnimatedButtonWithAction> createState() => _ColoredAnimatedButtonWithActionState();
 }
 
-class _ColoredAnimatedButtonState extends State<ColoredAnimatedButton> {
+class _ColoredAnimatedButtonWithActionState extends State<ColoredAnimatedButtonWithAction> {
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +25,7 @@ class _ColoredAnimatedButtonState extends State<ColoredAnimatedButton> {
         height: widget.height,
         color: widget.color,
         onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => widget.route,
-              ));
+          widget.onPressed;
         },
         child: Text(
           widget.title,

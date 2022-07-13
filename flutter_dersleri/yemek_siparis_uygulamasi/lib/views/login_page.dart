@@ -1,4 +1,7 @@
+import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:yemek_siparis_uygulamasi/cubit/sign_in_page_cubit.dart';
 import 'package:yemek_siparis_uygulamasi/views/components/orange_animated_button.dart';
 import 'package:yemek_siparis_uygulamasi/views/components/text_field_with_controller.dart';
 import 'package:yemek_siparis_uygulamasi/views/foods_page.dart';
@@ -13,7 +16,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  var tfUserName = TextEditingController();
+  var tfMailAdress = TextEditingController();
   var tfPassword = TextEditingController();
 
   @override
@@ -35,14 +38,17 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             TextFieldWithController(
-              controller: tfUserName,
-              label: 'User Name',
+              controller: tfMailAdress,
+              label: 'E-Mail',
             ),
             TextFieldWithController(
               controller: tfPassword,
               label: 'Password',
             ),
-            const ColoredAnimatedButton(route: FoodsPage(kullanici_adi: 'mzyavuz',), title: 'Login'),
+            AnimatedButton(onPressed: () {
+              context.read<SignInPageCubit>().signIn(tfMailAdress.text, tfPassword.text);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const FoodsPage(kullanici_adi: "")));
+            }, child: const Text('Login')),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
