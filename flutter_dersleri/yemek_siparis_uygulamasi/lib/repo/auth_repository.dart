@@ -38,7 +38,7 @@ class AuthRepository {
   signIn(String email, String password) async {
     try {
       if (email.isEmpty || password.isEmpty) {
-        throw Exception("Lütfen tüm alanları doldurun.");
+        throw Exception("Please fill the all areas.");
       }
 
       await _firebaseAuth.signInWithEmailAndPassword(
@@ -49,9 +49,9 @@ class AuthRepository {
     } on FirebaseAuthException catch (error) {
       switch (error.code) {
         case 'user-not-found':
-          throw Exception("Kullanıcı bulunamadı.");
+          throw Exception("User not found!");
         case 'wrong-password':
-          throw Exception("Hatalı şifre girdiniz.");
+          throw Exception("Wrong password!");
       }
     }
   }
@@ -77,11 +77,11 @@ class AuthRepository {
           surname.isEmpty ||
           email.isEmpty ||
           password.isEmpty) {
-        throw Exception("Lütfen tüm alanları doldurun.");
+        throw Exception("Please fill the all areas.");
       }
 
       if (password.length < 6) {
-        throw Exception('Lütfen en az 7 karakterli bir şifre giriniz.');
+        throw Exception('Please enter at least 7 characters.');
       }
 
       await _firebaseAuth.createUserWithEmailAndPassword(
