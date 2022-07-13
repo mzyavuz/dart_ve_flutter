@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:yemek_siparis_uygulamasi/cubit/sign_up_page_cubit.dart';
 import 'package:yemek_siparis_uygulamasi/views/components/orange_animated_button.dart';
 import 'package:yemek_siparis_uygulamasi/views/components/text_field_with_controller.dart';
 import 'package:yemek_siparis_uygulamasi/views/login_page.dart';
@@ -57,7 +59,12 @@ class _SignUpPageState extends State<SignUpPage> {
                 controller: tfPassword,
                 label: 'Password',
               ),
-              const ColoredAnimatedButton(route: LoginPage(), title: 'Sign Up'),
+              BlocListener<SignUpPageCubit, void>(
+                listener: (context, state) {
+                  context.read<SignUpPageCubit>().signUp(username: tfUserName.text, name: tfName.text, surname: tfSurnmame.text, email: tfMailAdress.text, password: tfPassword.text);
+                  print('İslem yapıldı');
+                },
+                child: const ColoredAnimatedButton(route: LoginPage(), title: 'Sign Up',),),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

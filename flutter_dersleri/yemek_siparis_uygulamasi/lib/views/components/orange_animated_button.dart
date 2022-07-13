@@ -1,5 +1,6 @@
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ColoredAnimatedButton extends StatefulWidget {
   final String title;
@@ -9,13 +10,14 @@ class ColoredAnimatedButton extends StatefulWidget {
   final double height;
   final double width;
 
-  const ColoredAnimatedButton({Key? key, required this.route, required this.title, this.color = Colors.orange, this.width =200, this.height = 64}): super(key: key);
+  const ColoredAnimatedButton({Key? key, required this.route, required this.title, this.color = Colors.orange, this.width =200, this.height = 64,}): super(key: key);
 
   @override
   State<ColoredAnimatedButton> createState() => _ColoredAnimatedButtonState();
 }
 
 class _ColoredAnimatedButtonState extends State<ColoredAnimatedButton> {
+
   @override
   Widget build(BuildContext context) {
     return Padding(

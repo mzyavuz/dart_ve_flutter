@@ -9,7 +9,7 @@ class SignUpPageCubit extends Cubit<void> {
 
   var authRepo = AuthRepository();
 
-  signUp({
+  Future<void> signUp({
     required String username,
     required String name,
     required String surname,

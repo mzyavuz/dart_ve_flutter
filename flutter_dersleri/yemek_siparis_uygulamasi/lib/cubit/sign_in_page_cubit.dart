@@ -8,7 +8,7 @@ class SignInPageCubit extends Cubit<List<TheUser>> {
 
   var authRepo = AuthRepository();
 
-  signIn(String email, String password) async {
+  Future<void> signIn(String email, String password) async {
     try {
       await authRepo.signIn(email, password);
       theUser = await authRepo.getTheUser();
@@ -20,7 +20,7 @@ class SignInPageCubit extends Cubit<List<TheUser>> {
     }
   }
 
-  signInAnonymously(String username) async {
+  Future<void> signInAnonymously(String username) async {
     try {
       await authRepo.signInAnonymously(username).then(
             (value) => {

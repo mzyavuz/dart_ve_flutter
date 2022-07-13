@@ -84,7 +84,7 @@ class AuthRepository {
         throw Exception('Lütfen en az 7 karakterli bir şifre giriniz.');
       }
 
-      var userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
+      await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -97,10 +97,10 @@ class AuthRepository {
       switch (error.code) {
         case 'email-already-in-use':
           throw Exception(
-              'Bu e-posta ile kayıtlı bir kullanıcı zaten var.');
+              'This email already in use!');
         default:
           throw Exception(
-              'Bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
+              'Error occured. Please try again later!');
       }
     }
   }
