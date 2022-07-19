@@ -5,6 +5,7 @@ import 'package:yemek_siparis_uygulamasi/cubit/foods_page_cubit.dart';
 import 'package:yemek_siparis_uygulamasi/cubit/food_detail_page_cubit.dart';
 import 'package:yemek_siparis_uygulamasi/cubit/sign_in_page_cubit.dart';
 import 'package:yemek_siparis_uygulamasi/cubit/sign_up_page_cubit.dart';
+import 'package:yemek_siparis_uygulamasi/cubit/user_page_cubit.dart';
 import 'package:yemek_siparis_uygulamasi/views/main_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => FoodDetailPageCubit(),),
         BlocProvider(create: (context) => OrderPageCubit(),),
         BlocProvider(create: (context) => SignInPageCubit(),),
-        BlocProvider(create: (context) => SignUpPageCubit(),)
+        BlocProvider(create: (context) => SignUpPageCubit(),),
+        BlocProvider(create: (context) => UserPageCubit(),)
       ],
       child: MaterialApp(
         title: 'Food Ordering App',

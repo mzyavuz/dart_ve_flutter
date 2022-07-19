@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yemek_siparis_uygulamasi/views/foods_page.dart';
-import 'package:yemek_siparis_uygulamasi/views/login_page.dart';
 import 'package:yemek_siparis_uygulamasi/views/order_page.dart';
+import 'package:yemek_siparis_uygulamasi/views/user_page.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   final String kullanici_adi;
@@ -34,7 +34,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           },),
           IconButton(
             icon: const Icon(Icons.person), onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage(),));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const UserPage(),));
 
           },),
         ],

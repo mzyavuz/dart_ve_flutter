@@ -12,6 +12,7 @@ class SignInPageCubit extends Cubit<List<TheUser>> {
     try {
       await authRepo.signIn(email, password);
       theUser = await authRepo.getTheUser();
+      print('girildi');
       emit([theUser!]);
 
     } catch (e) {

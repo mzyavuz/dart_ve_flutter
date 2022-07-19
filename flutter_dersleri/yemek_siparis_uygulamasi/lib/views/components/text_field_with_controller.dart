@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class TextFieldWithController extends StatefulWidget {
   final TextEditingController controller;
+  final String hintText;
   final String label;
 
-  const TextFieldWithController({Key? key, required this.controller, required this.label}) : super(key: key);
+  const TextFieldWithController({Key? key, required this.controller, required this.label, required this.hintText}) : super(key: key);
 
 
 
@@ -21,6 +22,7 @@ class _TextFieldWithControllerState extends State<TextFieldWithController> {
       child: TextField(
           controller: widget.controller,
           decoration: InputDecoration(
+            hintText: widget.hintText,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(

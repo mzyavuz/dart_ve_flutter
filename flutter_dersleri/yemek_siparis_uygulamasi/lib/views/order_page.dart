@@ -24,11 +24,12 @@ class _OrderPageState extends State<OrderPage> {
 
   @override
   Widget build(BuildContext context) {
+    double totalPrice = 0.0;
     return Scaffold(
       body: Column(
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height*0.8,
+            height: MediaQuery.of(context).size.height * 0.8,
             child: CustomScrollView(
               slivers: [
                 SliverPersistentHeader(
@@ -43,13 +44,16 @@ class _OrderPageState extends State<OrderPage> {
                       delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
                           var yemek = sepettekiYemekListesi[index];
+                          yemek.price = int.parse(yemek.yemek_fiyat) *
+                              int.parse(yemek.yemek_siparis_adet!);
                           String resimUrl =
                               "http://kasimadalan.pe.hu/yemekler/resimler/";
                           return GestureDetector(
                             onTap: () {},
                             child: Card(
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   SizedBox(
                                       height: 150,
@@ -60,40 +64,55 @@ class _OrderPageState extends State<OrderPage> {
                                     child: SizedBox(
                                       height: 70,
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(yemek.yemek_adi),
                                           Text("${yemek.yemek_fiyat} ₺"),
-                                          Text("${yemek.yemek_siparis_adet} tane"),
+                                          Text(
+                                              "${yemek.yemek_siparis_adet} tane"),
                                         ],
                                       ),
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(18.0),
-                                    child: IconButton(
-                                        onPressed: () {
-                                          ScaffoldMessenger.of(context).showSnackBar(
-                                            SnackBar(
-                                              content: Text("Do you want to remove ${yemek.yemek_adi} from your cart? ", style: TextStyle(color: Colors.indigoAccent),),
-                                              backgroundColor: Colors.white,
-                                              action: SnackBarAction(
-                                                  label: "Yes",
-                                                  textColor: Colors.red,
-                                                  onPressed: (){
-                                                    context
-                                                        .read<OrderPageCubit>()
-                                                        .deleteFoodFromCart(
-                                                        int.parse(yemek.sepet_yemek_id!),
-                                                        widget.kullanici_adi);
-
-                                                  }),
-                                            ),
-                                          );
-                                        },
-                                        icon: const Icon(Icons.remove)),
+                                    child: Column(
+                                      children: [
+                                        IconButton(
+                                            onPressed: () {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    "Do you want to remove ${yemek.yemek_adi} from your cart? ",
+                                                    style: const TextStyle(
+                                                        color: Colors
+                                                            .indigoAccent),
+                                                  ),
+                                                  backgroundColor: Colors.white,
+                                                  action: SnackBarAction(
+                                                      label: "Yes",
+                                                      textColor: Colors.red,
+                                                      onPressed: () {
+                                                        context
+                                                            .read<
+                                                                OrderPageCubit>()
+                                                            .deleteFoodFromCart(
+                                                                int.parse(yemek
+                                                                    .sepet_yemek_id!),
+                                                                widget
+                                                                    .kullanici_adi);
+                                                      }),
+                                                ),
+                                              );
+                                            },
+                                            icon: const Icon(Icons.remove)),
+                                        Text('Ücret: ${yemek.price} ₺'),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
@@ -110,11 +129,16 @@ class _OrderPageState extends State<OrderPage> {
                         padding: const EdgeInsets.all(58.0),
                         child: Column(
                           children: [
-                            const Text("Your Cart is Empty",
-                            style: TextStyle(fontSize: 20),),
+                            const Text(
+                              "Your Cart is Empty",
+                              style: TextStyle(fontSize: 20),
+                            ),
                             ColoredAnimatedButton(
-                                route: FoodsPage(kullanici_adi: widget.kullanici_adi,),
-                                title: 'Add a Product',)
+                              route: FoodsPage(
+                                kullanici_adi: widget.kullanici_adi,
+                              ),
+                              title: 'Add a Product',
+                            )
                           ],
                         ),
                       ),
@@ -128,22 +152,36 @@ class _OrderPageState extends State<OrderPage> {
             ),
           ),
           Row(
-            children: const [
-              ColoredAnimatedButton(
-                width: 180,
+            children: [
+              BlocBuilder<OrderPageCubit, List<Food>>(
+                builder: (context, cartList) {
+                  if (cartList.isNotEmpty) {
+
+                  return Text('Toplam Ücret: $totalPrice');}
+                  else {
+                    return const Center();
+                  }
+                },
+              ),
+              const ColoredAnimatedButton(
+                width: 130,
                 route: Center(),
                 title: 'Cancel',
                 color: Colors.grey,
               ),
-              ColoredAnimatedButton(
-                width: 180,
-                  color: Colors.deepOrange, route: Center(), title: 'Pay',
+              const ColoredAnimatedButton(
+                width: 130,
+                color: Colors.deepOrange,
+                route: Center(),
+                title: 'Pay',
               )
             ],
           ),
         ],
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(kullanici_adi: widget.kullanici_adi,),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        kullanici_adi: widget.kullanici_adi,
+      ),
     );
   }
 }
@@ -191,15 +229,19 @@ class SliverAppBar extends SliverPersistentHeaderDelegate {
                   "The Order of",
                   style: TextStyle(
                     fontFamily: 'PatrickHand',
-                    fontSize: shrinkOffset > 0 ? (40 - (shrinkOffset * 0.12)) : 40,
+                    fontSize:
+                        shrinkOffset > 0 ? (40 - (shrinkOffset * 0.12)) : 40,
                   ),
                 ),
-                Text(kullanici_adi,
+                Text(
+                  kullanici_adi,
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'PatrickHand',
-                    fontSize: shrinkOffset > 0 ? (40 - (shrinkOffset * 0.12)) : 40,
-                  ),)
+                    fontSize:
+                        shrinkOffset > 0 ? (40 - (shrinkOffset * 0.12)) : 40,
+                  ),
+                )
               ],
             ),
           ),

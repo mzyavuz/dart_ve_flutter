@@ -52,4 +52,5 @@ class FoodsRepository {
     adjustedList.removeWhere((element) => element.yemek_adi == yemek_adi);
     return adjustedList;
   }
+
 }

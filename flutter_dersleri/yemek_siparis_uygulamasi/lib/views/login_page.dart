@@ -38,10 +38,12 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             TextFieldWithController(
+              hintText: '',
               controller: tfMailAdress,
               label: 'E-Mail',
             ),
             TextFieldWithController(
+              hintText: '',
               controller: tfPassword,
               label: 'Password',
             ),

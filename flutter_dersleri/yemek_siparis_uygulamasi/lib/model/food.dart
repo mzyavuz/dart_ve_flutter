@@ -6,8 +6,9 @@ class Food {
   String yemek_fiyat;
   String? yemek_siparis_adet;
   String? kullanici_adi;
+  int? price;
 
-  Food({this.sepet_yemek_id, this.yemek_id, required this.yemek_adi, required this.yemek_resim_adi, required this.yemek_fiyat, this.yemek_siparis_adet, this.kullanici_adi});
+  Food({this.sepet_yemek_id, this.yemek_id, required this.yemek_adi, required this.yemek_resim_adi, required this.yemek_fiyat, this.yemek_siparis_adet, this.kullanici_adi, this.price});
 
   factory Food.fromJson(Map<String, dynamic> json) {
     return Food(

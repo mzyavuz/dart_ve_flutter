@@ -43,22 +43,27 @@ class _SignUpPageState extends State<SignUpPage> {
               TextFieldWithController(
                 controller: tfUserName,
                 label: 'User Name',
+                hintText: '',
               ),
               TextFieldWithController(
                 controller: tfName,
                 label: 'Name',
+                hintText: '',
               ),
               TextFieldWithController(
                 controller: tfSurnmame,
                 label: 'Surname',
+                hintText: '',
               ),
               TextFieldWithController(
                 controller: tfMailAdress,
                 label: 'E-Mail',
+                hintText: '',
               ),
               TextFieldWithController(
                 controller: tfPassword,
                 label: 'Password',
+                hintText: '',
               ),
               AnimatedButton(
                 onPressed: () {

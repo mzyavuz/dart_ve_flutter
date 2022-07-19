@@ -33,8 +33,13 @@ class OrderPageCubit extends Cubit<List<Food>> {
     await loadAllFoodAtCart(kullanici_adi);
   }
 
-
-
-
+  double calculateTotalPrice(List<Food> cartList, double totalPrice) {
+    cartList.forEach((e) {
+      e.price = int.parse(e.yemek_fiyat) *
+          int.parse(e.yemek_siparis_adet!);
+      totalPrice += e.price!;
+    });
+    return totalPrice;
+  }
 
 }
