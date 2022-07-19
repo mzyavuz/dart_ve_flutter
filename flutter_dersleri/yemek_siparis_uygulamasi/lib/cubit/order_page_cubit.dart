@@ -33,13 +33,13 @@ class OrderPageCubit extends Cubit<List<Food>> {
     await loadAllFoodAtCart(kullanici_adi);
   }
 
-  double calculateTotalPrice(List<Food> cartList, double totalPrice) {
-    cartList.forEach((e) {
-      e.price = int.parse(e.yemek_fiyat) *
-          int.parse(e.yemek_siparis_adet!);
-      totalPrice += e.price!;
+  int calculateTotalPrice(String kullanici_adi, List<Food> cartList, int totalPrice) {
+    totalPrice = 0;
+    cartList.forEach((yemek) {
+      yemek.price = int.parse(yemek.yemek_fiyat) *
+          int.parse(yemek.yemek_siparis_adet!);
     });
-    return totalPrice;
+    return cartList.fold<int>(0, (previousValue, element) => previousValue + element.price!);
   }
 
 }

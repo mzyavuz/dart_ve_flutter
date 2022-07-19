@@ -24,7 +24,7 @@ class _OrderPageState extends State<OrderPage> {
 
   @override
   Widget build(BuildContext context) {
-    double totalPrice = 0.0;
+    final OrderPageCubit cubit = OrderPageCubit();
     return Scaffold(
       body: Column(
         children: [
@@ -154,12 +154,15 @@ class _OrderPageState extends State<OrderPage> {
           Row(
             children: [
               BlocBuilder<OrderPageCubit, List<Food>>(
+                bloc: cubit,
                 builder: (context, cartList) {
+                  cubit.loadAllFoodAtCart(widget.kullanici_adi);
+                  int totalPrice = 0;
+                  totalPrice = cubit.calculateTotalPrice(widget.kullanici_adi, cartList, totalPrice);
                   if (cartList.isNotEmpty) {
-
-                  return Text('Toplam Ücret: $totalPrice');}
-                  else {
-                    return const Center();
+                    return Text('Toplam Ücret: $totalPrice');
+                  } else {
+                   return Text('HATA');
                   }
                 },
               ),
@@ -230,7 +233,7 @@ class SliverAppBar extends SliverPersistentHeaderDelegate {
                   style: TextStyle(
                     fontFamily: 'PatrickHand',
                     fontSize:
-                        shrinkOffset > 0 ? (40 - (shrinkOffset * 0.12)) : 40,
+                        shrinkOffset > 0 ? (40 - (shrinkOffset * 0.14)) : 40,
                   ),
                 ),
                 Text(
@@ -239,7 +242,7 @@ class SliverAppBar extends SliverPersistentHeaderDelegate {
                     color: Colors.white,
                     fontFamily: 'PatrickHand',
                     fontSize:
-                        shrinkOffset > 0 ? (40 - (shrinkOffset * 0.12)) : 40,
+                        shrinkOffset > 0 ? (37 - (shrinkOffset * 0.14)) : 37,
                   ),
                 )
               ],
