@@ -1,9 +1,7 @@
 # dart_ve_flutter
 ## Techcareer Flutter Bootcamp 
-### Kasım Adalan
-
 ---
-[**Dart Dersleri**](https://github.com/mzyavuz/dart_ve_flutter/tree/main/dart_dersleri/lib)
+[### Dart Dersleri**](https://github.com/mzyavuz/dart_ve_flutter/tree/main/dart_dersleri/lib)
 
 [Giriş](https://github.com/mzyavuz/dart_ve_flutter/tree/main/dart_dersleri/lib/0_giris)
 
